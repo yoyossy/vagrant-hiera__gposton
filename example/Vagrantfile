@@ -11,6 +11,12 @@ Vagrant::Config.run do |config|
 
   config.puppetconf.updates = {'main/environment' => 'test'}
 
+  config.vbguest.auto_update = true
+
+  # do NOT download the iso file from a webserver
+  config.vbguest.no_remote = false
+
+
   config.vm.provision :puppet do |puppet|
     puppet.module_path = "./modules"
     puppet.manifests_path = "./manifests"
